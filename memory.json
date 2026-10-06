@@ -1,0 +1,30 @@
+{
+  "user_profile": {
+    "name": "Krishna",
+    "honorific": "Sir",
+    "role": "1st-year Mechanical Engineering student",
+    "roll_number": "26110285",
+    "health_status": "Recovered from a 10-day bout of dengue in late September 2026. Needs pacing, hydration, and gradual catch-up on missed coursework."
+  },
+  "academic_context": {
+    "department": "Mechanical Engineering",
+    "faculty": {},
+    "current_initiatives": [
+      "Building J.A.R.V.I.S. as an autonomous multi-modal AI action agent and desktop companion",
+      "Preparing presentation to demonstrate J.A.R.V.I.S. capabilities to university professors",
+      "Catching up on classes and assignments missed during 10 days of dengue recovery"
+    ]
+  },
+  "learned_memories": [
+    "User is an ambitious 1st-year Mechanical Engineering student building autonomous AI agents.",
+    "User communicates through Microsoft Outlook 365.",
+    "User prefers concise, practical technical explanations without overwhelming jargon.",
+    "User is planning smart automation integrating smart displays, mobile devices, and desktop workstations.",
+    "my semester project presentation on autonomous agents is scheduled for friday morning (Recorded 02 Oct 2026)"
+  ],
+  "preferences": {
+    "persona": "Dignified British butler with Stark-level tactical intelligence",
+    "communication_style": "Concise, supportive, loyal, and proactive",
+    "voice_tone": "Refined British English"
+  }
+}

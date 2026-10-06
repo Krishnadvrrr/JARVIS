@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S. | Stark Industries AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="hud-overlay"></div>
+    
+    <!-- Top System Header -->
+    <header class="stark-header">
+        <div class="header-left">
+            <div class="stark-brand-wrap">
+                <span class="stark-brand">STARK</span>
+                <span class="stark-sub">INDUSTRIES</span>
+            </div>
+            <div class="system-badge">
+                <span class="pulse-dot"></span>
+                <span id="system-status-text">SYSTEM ONLINE</span>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="jarvis-title">J.A.R.V.I.S.</div>
+            <div class="jarvis-subtitle">JUST A RATHER VERY INTELLIGENT SYSTEM</div>
+        </div>
+
+        <div class="header-right">
+            <div class="status-metric">
+                <span class="metric-label">AI CORE</span>
+                <span class="metric-val" id="model-name">GEMINI 3.6 FLASH</span>
+            </div>
+            <div class="status-metric">
+                <span class="metric-label">SYSTEM TIME</span>
+                <span class="metric-val" id="system-time">00:00:00</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="hud-main">
+        <!-- Left Column: Arc Reactor Core & Voice Controls -->
+        <section class="hud-left-panel">
+            <div class="reactor-card">
+                <div class="reactor-container">
+                    <div class="ring-outer"></div>
+                    <div class="ring-middle"></div>
+                    <div class="ring-inner"></div>
+                    <div class="reactor-core" id="reactorCore">
+                        <div class="core-glow"></div>
+                        <i class="fa-solid fa-atom core-icon"></i>
+                    </div>
+                </div>
+
+                <div class="voice-visualizer" id="visualizer">
+                    <div class="v-bar"></div>
+                    <div class="v-bar"></div>
+                    <div class="v-bar"></div>
+                    <div class="v-bar"></div>
+                    <div class="v-bar"></div>
+                    <div class="v-bar"></div>
+                    <div class="v-bar"></div>
+                    <div class="v-bar"></div>
+                    <div class="v-bar"></div>
+                </div>
+
+                <div class="reactor-status" id="reactorStatus">STANDBY // READY FOR DIRECTIVE</div>
+            </div>
+
+            <!-- Audio & System Diagnostics Controls -->
+            <div class="audio-controls-panel">
+                <div class="panel-title"><i class="fa-solid fa-sliders"></i> PROTOCOL CONTROLS</div>
+                
+                <div class="control-row">
+                    <label for="voiceSelect"><i class="fa-solid fa-volume-high"></i> Audio Voice:</label>
+                    <select id="voiceSelect" class="stark-select">
+                        <option value="">Default British/English Voice</option>
+                    </select>
+                </div>
+
+                <div class="toggle-grid">
+                    <button class="hud-btn active" id="speechToggleBtn" title="Mute/Unmute Speech Output">
+                        <i class="fa-solid fa-volume-high" id="speechIcon"></i>
+                        <span id="speechToggleText">Audio: ON</span>
+                    </button>
+                    <button class="hud-btn secondary" id="resetSessionBtn" title="Clear Session Memory">
+                        <i class="fa-solid fa-rotate"></i>
+                        <span>Reset Memory</span>
+                    </button>
+                </div>
+
+                <!-- Quick Directives -->
+                <div class="quick-prompts">
+                    <div class="prompt-title">QUICK DIRECTIVES:</div>
+                    <button class="chip-btn" data-msg="Run a full system diagnostic and report status, Jarvis.">System Diagnostics</button>
+                    <button class="chip-btn" data-msg="Identify yourself and state your primary capabilities.">Who are you?</button>
+                    <button class="chip-btn" data-msg="Jarvis, give me your best witty observation about technology.">JARVIS Wit</button>
+                    <button class="chip-btn" data-msg="Write a clean Python script to test network latency.">Python Tool</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Interactive Chat & Holographic Feed -->
+        <section class="hud-right-panel">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="term-title">
+                        <i class="fa-solid fa-terminal"></i> NEURAL INTERACTION LOG
+                    </div>
+                    <div class="term-info">
+                        <span class="badge-sec">ENCRYPTED // SHA-256</span>
+                    </div>
+                </div>
+
+                <div class="chat-feed" id="chatFeed">
+                    <div class="message jarvis-message">
+                        <div class="avatar"><i class="fa-solid fa-atom"></i></div>
+                        <div class="msg-bubble">
+                            <div class="msg-sender">J.A.R.V.I.S.</div>
+                            <div class="msg-text">Good day, sir. All primary systems are online, and the neural link to Gemini 3.6 Flash is fully operational. How may I be of assistance?</div>
+                            <div class="msg-time" id="initial-time">READY</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Console -->
+                <div class="input-console">
+                    <button class="mic-btn" id="micBtn" title="Speak to JARVIS (Microphone)">
+                        <i class="fa-solid fa-microphone" id="micIcon"></i>
+                    </button>
+                    <textarea id="userInput" placeholder="Speak or type a command for J.A.R.V.I.S..." rows="1"></textarea>
+                    <button class="send-btn" id="sendBtn" title="Transmit Directives">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="hud-footer">
+        <span>STARK INDUSTRIES AI PROTOCOL</span>
+        <span>CONNECTED TO LOCALHOST:5000 // QUANTUM CORE</span>
+    </footer>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+# ==============================================================================
+# J.A.R.V.I.S. Git Ignore Rules
+# ==============================================================================
+
+# Credentials & Sensitive Configurations
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.token
+
+# Python Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+*/venv/
+*/env/
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local SQLite Databases & Data Stores
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+
+# Runtime State & Dynamic Session Histories
+sessions_history.json
+requirement_sessions.json
+static/telegram_config.json
+static/zepto_order_latest.json
+static/zepto_state.json
+static/launch_result.json
+static/launch_target.json
+static/screen.png
+static/screenshots/
+static/uploads/
+static/browser_profiles/
+static/sites/*/
+
+# Logs & Temporary Files
+*.log
+debug.log
+launcher.log
+test_outputs/*
+!test_outputs/.gitkeep
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
