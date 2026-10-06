@@ -1429,7 +1429,8 @@ class RAGPipeline:
                     timeout=20
                 )
                 if resp_neb.status_code == 200:
-                    raw_answer = resp_neb.json()["choices"][0]["message"]["content"].strip()
+                    neb_msg = resp_neb.json()["choices"][0]["message"]
+                    raw_answer = (neb_msg.get("content") or neb_msg.get("reasoning_content") or "").strip()
                     logger.info(f"RAG synthesis completed via Nebius AI Studio ({nebius_model})")
                 else:
                     logger.warning(f"Nebius AI Studio warning ({resp_neb.status_code}): {resp_neb.text}")

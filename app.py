@@ -466,7 +466,8 @@ def call_groq(user_message: str, session_id: str) -> str:
             }
             resp_neb = requests.post(neb_url, headers=neb_headers, json=neb_payload, timeout=20)
             if resp_neb.status_code == 200:
-                reply = resp_neb.json()['choices'][0]['message']['content']
+                choice_msg = resp_neb.json()['choices'][0]['message']
+                reply = choice_msg.get('content') or choice_msg.get('reasoning_content')
                 print(f"[Nebius AI Studio]: Inference successful with {neb_model}")
             else:
                 print(f"[Nebius API Warn]: Status {resp_neb.status_code} - {resp_neb.text}")
