@@ -107,6 +107,8 @@ class EmbeddingEngine:
         gemini_key = os.getenv("GEMINI_API_KEY")
         if gemini_key and cls.config.provider == "gemini":
             try:
+                import warnings
+                warnings.filterwarnings("ignore", category=FutureWarning)
                 import google.generativeai as genai
                 genai.configure(api_key=gemini_key)
                 res = genai.embed_content(
